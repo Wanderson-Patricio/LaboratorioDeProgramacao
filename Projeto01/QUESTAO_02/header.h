@@ -17,4 +17,10 @@ Lista* fillList(int n);
 
 void printList(Lista* l);
 
+int menor(int a, int b);
+
+Lista* Uniao(Lista* c1, Lista* c2);
+Lista* Intersecao(Lista* c1, Lista* c2);
+Lista* Diferenca(Lista* c1, Lista* c2);
+
 #endif // HEADER_H_INCLUDED

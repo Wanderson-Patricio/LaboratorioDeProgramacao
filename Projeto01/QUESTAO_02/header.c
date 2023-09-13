@@ -62,7 +62,9 @@ int removeFromList(Lista* l, int i){
 Lista* fillList(int n){
     char label[50];
     printf("Qual o nome rotulo da lista: ");
+    fflush(stdin);
     fgets(label, 50, stdin);
+
     Lista* l = createList(n, label);
     int aux;
     for(int i=0; i < n; i++){
@@ -89,4 +91,67 @@ void printList(Lista* l){
     for(int i=0; i<l->front; i++){
         printf("a[%d] = %d \n", i, *(l->array + i));
     }
+    printf("\n");
+}
+
+int menor(int a, int b){
+    return a<b ? a : b;
+}
+
+Lista* Uniao(Lista* c1, Lista* c2){
+    char nomeDaLista[50];
+    strcpy(nomeDaLista, "Uniao entre ");
+    strcat(nomeDaLista, c1->label);
+    strcat(nomeDaLista, " e ");
+    strcat(nomeDaLista, c2->label);
+    Lista* uniao = createList(c1->size + c2->size, nomeDaLista);
+
+    for(int i=0; i<c1->size; i++){
+        insertInList(uniao, c1->array[i]);
+    }
+
+    for(int i=0; i<c2->size; i++){
+        if(isIn(uniao, c2->array[i]) == 0){
+            insertInList(uniao, c2->array[i]);
+        }
+    }
+
+    return uniao;
+}
+
+
+Lista* Intersecao(Lista* c1, Lista* c2){
+    char nomeDaLista[50];
+    strcpy(nomeDaLista, "Intersecao entre ");
+    strcat(nomeDaLista, c1->label);
+    strcat(nomeDaLista, " e ");
+    strcat(nomeDaLista, c2->label);
+
+    Lista* intersec = createList(menor(c1->size, c2->size), nomeDaLista);
+
+    for(int i=0; i<c1->size; i++){
+        if(isIn(c2, c1->array[i]) == 1){
+            insertInList(intersec, c1->array[i]);
+        }
+    }
+
+    return intersec;
+}
+
+
+Lista* Diferenca(Lista* c1, Lista* c2){
+    char nomeDaLista[50];
+    strcpy(nomeDaLista, "Diferenca entre ");
+    strcat(nomeDaLista, c1->label);
+    strcat(nomeDaLista, " e ");
+    strcat(nomeDaLista, c2->label);
+    Lista* dif = createList(c1, nomeDaLista);
+
+    for(int i=0; i<c1->size; i++){
+        if(isIn(c2, c1->array[i]) == 0){
+            insertInList(dif, c1->array[i]);
+        }
+    }
+
+    return dif;
 }
