@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1694695051 source:c:\users\ufca.desktop-9ce62q7\downloads\questao_03\header.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"header.h"
+
+1694695015 c:\users\ufca.desktop-9ce62q7\downloads\questao_03\header.h
+
+1694695018 source:c:\users\ufca.desktop-9ce62q7\downloads\questao_03\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"header.h"
+
