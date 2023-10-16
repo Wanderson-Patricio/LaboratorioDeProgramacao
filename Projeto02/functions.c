@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "functions.h"
+
 void mergeOriginal(int* vet, int inicio, int meio, int fim){
     int *temp, p1, p2, tamanho, i, j, k;
     int fim1 = 0, fim2 = 0;
